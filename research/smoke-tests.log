@@ -1,0 +1,18 @@
+## smoke run 2026-11-14T10:27:30Z
+### printkit/minis_build
+8
+### qa_pdf negative test (Letter file renamed, scaled 98% must FAIL calibration)
+"ok": false
+"bar_50mm_measured": 49.19
+exit=0 (expect ok false)
+### crochet validator negative test
+errors on corrupted pattern: ['Body (worked in continuous rounds from the nose) R4: produces 24 but states (25)']
+errors on real pattern: []
+### listing_check
+ok   13 tags ok
+### ffmpeg
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
+### pdftoppm
+pdftoppm version 24.02.0
+### reportlab/pypdf/Pillow
+5.0.1 6.17.0 12.3.0

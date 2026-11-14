@@ -1,0 +1,4 @@
+ok   scales claimed=['12', '16', '24', '6'] files=['12', '16', '24', '6']
+ok   papers claimed=['A4', 'Letter'] files=['A4', 'Letter']
+ok   title 140 chars
+ok   13 tags ok

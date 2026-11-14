@@ -16,6 +16,17 @@ FONTB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 W, H, FPS = 1080, 1920, 30
 
 SHOTS = {
+    "MYST-FAM-01": {
+        "bg": "#1F3A5F",
+        "shots": [
+            (None, "6 cookies vanished at midnight.", 2.2),
+            (("MYST-FAM-01_PrintPack_Letter_Color.pdf", 3, (0.0, 0.0, 1.0, 0.55)), "Everyone says they were asleep...", 2.4),
+            (("MYST-FAM-01_PrintPack_Letter_Color.pdf", 5, (0.0, 0.05, 0.52, 0.3)), "Whose glasses are these?", 2.6),
+            (("MYST-FAM-01_PrintPack_Letter_Color.pdf", 2, (0.0, 0.0, 1.0, 0.45)), "Someone is not telling the truth.", 2.4),
+            (("MYST-FAM-01_PrintPack_Letter_Color.pdf", 1, (0.0, 0.0, 1.0, 0.6)), "Your family are the detectives.", 2.2),
+            (None, "Printable family night game, ages 8-12. Link in bio.", 2.6),
+        ],
+    },
     "MYST-BDAY-01": {
         "bg": "#5B3FA0",
         "shots": [

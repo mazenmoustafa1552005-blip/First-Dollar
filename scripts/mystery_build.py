@@ -18,12 +18,13 @@ import sys
 from reportlab.lib.colors import HexColor, white
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
+from reportlab.pdfbase import pdfmetrics
 from reportlab.platypus import Paragraph
 
 sys.path.insert(0, os.path.dirname(__file__))
 import printkit as pk  # noqa: E402
 
-GAMES = {"bday": "mystery_content_bday"}
+GAMES = {"bday": "mystery_content_bday", "snack": "mystery_content_snack"}
 M = 14.0  # page margin mm
 
 
@@ -72,6 +73,32 @@ def draw_person(c, th, x, y, s, look):
     c.saveState()
     c.setStrokeColor(pk.INK)
     c.setLineWidth(0.8)
+    if look.get("cat"):
+        F(look.get("fur", "#7F8C8D"))
+        c.ellipse((x + s * .2) * mm, (y + s * .16) * mm, (x + s * .72) * mm, (y + s * .48) * mm, stroke=1, fill=1)
+        for lx in (0.28, 0.4, 0.54, 0.64):
+            c.rect((x + s * lx) * mm, (y + s * .08) * mm, s * .06 * mm, s * .12 * mm, stroke=1, fill=1)
+        c.circle((x + s * .72) * mm, (y + s * .56) * mm, s * .14 * mm, stroke=1, fill=1)
+        for ex in (-1, 1):
+            p = c.beginPath()
+            p.moveTo((x + s * (.72 + ex * .12)) * mm, (y + s * .62) * mm)
+            p.lineTo((x + s * (.72 + ex * .11)) * mm, (y + s * .8) * mm)
+            p.lineTo((x + s * (.72 + ex * .02)) * mm, (y + s * .68) * mm)
+            p.close()
+            c.drawPath(p, stroke=1, fill=1)
+        c.setLineWidth(1.6)
+        p = c.beginPath()
+        p.moveTo((x + s * .2) * mm, (y + s * .34) * mm)
+        p.curveTo((x + s * .06) * mm, (y + s * .4) * mm, (x + s * .06) * mm, (y + s * .62) * mm, (x + s * .14) * mm, (y + s * .7) * mm)
+        c.drawPath(p, stroke=1, fill=0)
+        c.setLineWidth(0.8)
+        F("#1C1C1C")
+        c.circle((x + s * .67) * mm, (y + s * .58) * mm, s * .018 * mm, stroke=0, fill=1)
+        c.circle((x + s * .77) * mm, (y + s * .58) * mm, s * .018 * mm, stroke=0, fill=1)
+        F("#2E6DB4")
+        c.rect((x + s * .62) * mm, (y + s * .43) * mm, s * .2 * mm, s * .035 * mm, stroke=0, fill=1)
+        c.restoreState()
+        return
     if look.get("dog"):
         F("#C8873F")
         c.ellipse((x + s * .18) * mm, (y + s * .22) * mm, (x + s * .78) * mm, (y + s * .52) * mm, stroke=1, fill=1)
@@ -147,6 +174,14 @@ def draw_person(c, th, x, y, s, look):
     F("#1C1C1C")
     c.circle((cx - s * .045) * mm, (y + s * .75) * mm, s * .014 * mm, stroke=0, fill=1)
     c.circle((cx + s * .045) * mm, (y + s * .75) * mm, s * .014 * mm, stroke=0, fill=1)
+    if look.get("glasses"):
+        c.saveState()
+        c.setStrokeColor(g(HexColor(look["glasses"])))
+        c.setLineWidth(1.4)
+        c.circle((cx - s * .05) * mm, (y + s * .75) * mm, s * .035 * mm, stroke=1, fill=0)
+        c.circle((cx + s * .05) * mm, (y + s * .75) * mm, s * .035 * mm, stroke=1, fill=0)
+        c.line((cx - s * .015) * mm, (y + s * .75) * mm, (cx + s * .015) * mm, (y + s * .75) * mm)
+        c.restoreState()
     c.setLineWidth(0.7)
     c.arc((cx - s * .04) * mm, (y + s * .68) * mm, (cx + s * .04) * mm, (y + s * .72) * mm, 200, 140)
     c.restoreState()
@@ -233,7 +268,7 @@ def host_guide(path, paper, th, game):
         ("0:30", "Hint 2 is available. Open ROUND 3: The trail."),
         ("0:40", "Hint 3 is available. Detectives discuss and fill in their accusation form."),
         ("0:45", "Each detective or team reads their accusation aloud. Then read the solution."),
-        ("0:55", "Award points and certificates. Optional finale: find the hidden cake!"),
+        ("0:55", "Award points and certificates. " + getattr(game, "FINALE_SHORT", "")),
     ]
     for t, s in steps:
         th.band(c, M, y - 6.5, 16, 8, th.accent, r=2)
@@ -258,7 +293,7 @@ def host_guide(path, paper, th, game):
     for line in game.INTRO_SCRIPT:
         y -= para(c, line, M + 4, y, W - 8, 12, "Serif") + 5
     y -= 4
-    pk.text(c, M, y, "The rooms at Bramble House", 12, "Sans-Bold", th.g(th.primary))
+    pk.text(c, M, y, f"The rooms at {game.PLACE_NAME}", 12, "Sans-Bold", th.g(th.primary))
     y -= 3
     for name, d in game.LOCATIONS:
         y -= para(c, f"<b>{name}:</b> {d}", M, y, W, 10.5) + 2.5
@@ -290,11 +325,10 @@ def host_guide(path, paper, th, game):
 def case_file(c, th, paper, game, n):
     pw, ph = pk.page_size_mm(paper)
     W = pw - 2 * M
-    y = header(c, th, paper, "Detective case file", "Case No. 70: the vanishing cake")
+    y = header(c, th, paper, "Detective case file", game.CASE_LABEL)
     pk.text(c, M, y, "Detective name: ______________________________", 11, "Sans")
     y -= 9
-    y -= para(c, "Grandma Rosa's lemon birthday cake was on the kitchen counter at 3:00 pm. At 3:20 pm it was gone. "
-                 "Use the evidence to find out WHO took it, HOW you know, and WHERE it is.", M, y, W, 10.5) + 5
+    y -= para(c, game.CASE_SUMMARY, M, y, W, 10.5) + 5
     # tracker grid
     pk.text(c, M, y, "Evidence tracker", 12, "Sans-Bold", th.g(th.primary))
     y -= 4
@@ -338,16 +372,21 @@ def case_file(c, th, paper, game, n):
         draw_person(c, th, cx, cy - 26, 24, s["look"])
         pk.text(c, cx + 26, cy - 6, s["name"], 10, "Sans-Bold")
         para(c, s["wearing"], cx + 26, cy - 8, colw - 28, 7.8, "Sans", pk.INK)
-    y -= 92
+    y -= 90
+    pk.text(c, M, y, "THE PLACE", 9, "Sans-Bold", th.g(th.primary))
+    y -= 2
+    for name, d in game.LOCATIONS:
+        y -= para(c, f"<b>{name}:</b> {d}", M, y, W, 8.4) + 0.6
+    y -= 4
     th.band(c, M, y - 92, W, 92, th.soft, r=4)
     yy = y - 8
     pk.text(c, M + 5, yy, "MY ACCUSATION", 13, "Sans-Bold", th.g(th.primary))
     yy -= 11
-    for lab in ["WHO took the cake?", "Clue 1 that proves it:", "Clue 2 that proves it:",
-                "Clue 3 that proves it:", "WHERE is the cake now?"]:
+    for lab in game.ACCUSE:
         pk.text(c, M + 5, yy, lab, 10.5, "Sans-Bold")
         c.setStrokeColor(pk.INK)
-        pk.line(c, M + 58, yy - 0.8, M + W - 6, yy - 0.8)
+        lx = max(M + 58, M + 5 + pdfmetrics.stringWidth(lab, "Sans-Bold", 10.5) / mm + 3)
+        pk.line(c, lx, yy - 0.8, M + W - 6, yy - 0.8)
         yy -= 14
     footer(c, paper, game, "Case file page 2 of 2", n + 1)
     c.showPage()

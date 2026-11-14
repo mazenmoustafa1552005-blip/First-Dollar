@@ -22,6 +22,13 @@ Logic design (kept here so QA can re-check it):
 
 SKU = "MYST-BDAY-01"
 TITLE = "The Case of the Vanishing Birthday Cake"
+PLACE_NAME = "Bramble House"
+CASE_LABEL = "Case No. 70: the vanishing cake"
+CASE_SUMMARY = ("Grandma Rosa's lemon birthday cake was on the kitchen counter at 3:00 pm. At 3:20 pm it was gone. "
+                "Use the evidence to find out WHO took it, HOW you know, and WHERE it is.")
+ACCUSE = ["WHO took the cake?", "Clue 1 that proves it:", "Clue 2 that proves it:",
+          "Clue 3 that proves it:", "WHERE is the cake now?"]
+FINALE_SHORT = "Optional finale: find the hidden cake!"
 SUBTITLE = "A printable detective party game for ages 8 to 12"
 TAGLINE = "Grandma Rosa's cake has vanished. Ten minutes before the candles. Can your detectives crack the case?"
 
@@ -110,8 +117,8 @@ EVIDENCE = [
              "pointing out toward the garden. It has a ZIGZAG sole. Detective tape measure: the print is 19 cm long.",
      "icon": "boot"},
     {"id": "E2", "round": 3, "title": "Something caught on the latch",
-     "text": "A torn strip of shiny, crinkly BLUE party streamer is caught on the "
-             "back-door latch, as if someone hurried through the door.",
+     "text": "A torn strip of party streamer is caught on the back-door latch. "
+             "It is shiny and BLUE. Someone hurried through the door.",
      "icon": "streamer"},
     {"id": "E3", "round": 1, "title": "Paw prints",
      "text": "Little paw prints go from the laundry room to the kitchen counter and back. "
@@ -122,17 +129,19 @@ EVIDENCE = [
              "Three lemon layers, a sugar crown, and lots of BLUE sprinkles on top.",
      "icon": "cake"},
     {"id": "E5", "round": 2, "title": "Grandma Rosa's statement",
-     "text": "\"I sat on the hall bench blowing up balloons from 3:00 to 3:20. Lily was on the "
-             "phone right next to me the WHOLE time. At 3:08 Mia ran up the stairs to the "
-             "bathroom and came straight back down at 3:12. Nobody else came through the hall.\"",
+     "text": "\"I sat on the hall bench blowing up balloons from 3:00 to 3:20. "
+             "Lily was on the phone next to me the WHOLE time. "
+             "At 3:08 Mia ran upstairs to the bathroom. She came straight back down at 3:12. "
+             "Nobody else came through the hall.\"",
      "icon": "speech"},
     {"id": "E6", "round": 2, "title": "Magic show video stills",
-     "text": "3:02 - Felix on stage. Mia and Theo in the front row.\n"
-             "3:07 - Felix on stage. Mia in the front row. Theo's seat EMPTY.\n"
-             "3:10 - Felix on stage. Mia's seat empty. Theo's seat empty.\n"
-             "3:13 - Felix on stage. Mia is back. Theo's seat empty.\n"
-             "3:20 - Felix on stage. Mia in the front row. Theo's seat empty.\n"
-             "3:24 - Felix takes a bow. Mia clapping. Theo's seat still empty.",
+     "text": "Felix is on stage in every still.\n"
+             "3:02 - Mia and Theo in the front row.\n"
+             "3:07 - Mia there. Theo's seat EMPTY.\n"
+             "3:10 - Mia's and Theo's seats empty.\n"
+             "3:13 - Mia back. Theo's seat empty.\n"
+             "3:20 - Mia there. Theo's seat empty.\n"
+             "3:24 - Theo still missing.",
      "icon": "camera"},
     {"id": "E7", "round": 2, "title": "The great shoe check",
      "text": "Lily: flat sandals, smooth sole.\nFelix: smooth black shoes, 28 cm.\n"
@@ -145,8 +154,8 @@ EVIDENCE = [
              "broken plate anywhere. Could Pepper reach the cake AND carry it away?",
      "icon": "paw"},
     {"id": "E9", "round": 1, "title": "Sprinkle trail",
-     "text": "Tiny BLUE sprinkles are scattered along the garden path, starting at the "
-             "kitchen back door and leading all the way down to the garden shed.",
+     "text": "Tiny BLUE sprinkles are scattered on the garden path. "
+             "They start at the kitchen back door. They lead all the way to the garden shed.",
      "icon": "dots"},
     {"id": "E10", "round": 3, "title": "A sign on the shed",
      "text": "A paper sign is taped to the shed door in wobbly crayon: "
@@ -157,8 +166,9 @@ EVIDENCE = [
              "There are no lemon crumbs or frosting on it.",
      "icon": "wrapper"},
     {"id": "E12", "round": 3, "title": "Felix's trick list",
-     "text": "Found in Felix's magic case: \"Trick 5: The Disappearing Cake (use the CARDBOARD "
-             "cake prop, NOT the real one!)\" The cardboard cake is still in the case.",
+     "text": "Found in Felix's magic case: a trick list. "
+             "\"Trick 5: The Disappearing Cake. Use the CARDBOARD cake!\" "
+             "The cardboard cake is still in the case.",
      "icon": "list"},
 ]
 

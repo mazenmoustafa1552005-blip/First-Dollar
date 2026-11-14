@@ -1,0 +1,6 @@
+ok   hostguide_pages=5 actual={'MYST-FAM-01_HostGuide_A4_Color.pdf': 5, 'MYST-FAM-01_HostGuide_A4_InkSaverBW.pdf': 5, 'MYST-FAM-01_HostGuide_Letter_Color.pdf': 5, 'MYST-FAM-01_HostGuide_Letter_InkSaverBW.pdf': 5}
+ok   printpack_pages=8 actual={'MYST-FAM-01_PrintPack_A4_Color.pdf': 8, 'MYST-FAM-01_PrintPack_A4_InkSaverBW.pdf': 8, 'MYST-FAM-01_PrintPack_Letter_Color.pdf': 8, 'MYST-FAM-01_PrintPack_Letter_InkSaverBW.pdf': 8}
+ok   papers claimed=['A4', 'Letter'] files=['A4', 'Letter']
+ok   bw_version=yes present=True
+ok   title 139 chars
+ok   13 tags ok

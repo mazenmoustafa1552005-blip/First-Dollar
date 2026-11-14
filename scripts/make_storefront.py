@@ -34,6 +34,19 @@ CONFIG = {
              "Same clues, outlines instead of color fills"),
         ],
     },
+    "MYST-FAM-01": {
+        "bg": "#1F3A5F", "fg": "#FFFFFF", "accent": "#F2C230",
+        "title": "The Midnight Snack Mystery",
+        "sub": "Family night detective game, ages 8-12",
+        "badges": ["2 to 8 detectives", "No acting, no scary stuff", "Color + ink-saver B&W", "A4 + US Letter"],
+        "hero_pdf": "MYST-FAM-01_PrintPack_Letter_Color.pdf", "hero_pages": [3, 5, 2],
+        "slides": [
+            ("What you get", "MYST-FAM-01_PrintPack_Letter_Color.pdf", [1, 2, 3, 4, 5, 6, 7, 8],
+             "Host guide (5 pages) + print pack (8 pages)"),
+            ("Ink-saver black and white version included", "MYST-FAM-01_PrintPack_Letter_InkSaverBW.pdf", [2, 3, 5],
+             "Same clues, outlines instead of color fills"),
+        ],
+    },
     "MINI-GROC-01": {
         "bg": "#2F4F4F", "fg": "#FFFFFF", "accent": "#F4C542",
         "title": "The Corner Grocer: Pantry Set",

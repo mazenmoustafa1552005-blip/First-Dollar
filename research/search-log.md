@@ -116,3 +116,7 @@ To close these gaps, the owner can allow these hosts in the session network sett
 - Payoneer and PayPal Egypt withdrawal fees (conflicting or missing).
 - Etsy shop set-up fee amount for Egypt.
 - Live listing sort by "Best Selling" and bestseller badges on Etsy (fetch blocked).
+
+## 2026-11-14: game-design psychology pass
+
+- 51 WebSearch queries plus 6 blocked WebFetch attempts (mymysteryparty.com, red-herring-games.com, nightofmystery.com, readingrockets.org, pmc.ncbi.nlm.nih.gov). Full dated log and sources: `research/game-design-psychology.md`.

@@ -8,6 +8,13 @@ description: Use when writing or revising a printable kids' mystery game (ages 8
 ## Content module
 Each game is one Python data module `scripts/mystery_content_<key>.py` (copy `mystery_content_bday.py`). Register it in `GAMES` inside `scripts/mystery_build.py`. Build: `python3 scripts/mystery_build.py --game <key>`.
 
+## Research-based design rules
+Read `research/game-design-psychology.md` (28 testable rules). Countable rules are checked by
+`python3 scripts/mystery_lint.py <key>` (max 6 suspects, max 12 cards, max 4 per round,
+cards max 50 words, sentences max 12 words with a hard fail above 14). Must pass before build.
+Expert tier: one suspect statement is a lie that a card exposes; at least 2 eliminations need two cards combined.
+Keep decisive physical clues (glasses, clothing matches) out of Round 1 so older kids must reason.
+
 ## Logic rules (must hold before build)
 - Write the logic design in the module docstring: culprit, the 3 hard clues (K1-K3) and, for EVERY innocent, at least one hard clue that eliminates them.
 - No colour-only clues: every colour is also written in words (B&W ink-saver version must be equally solvable).

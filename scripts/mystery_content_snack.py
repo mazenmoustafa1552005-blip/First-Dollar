@@ -144,11 +144,11 @@ EVIDENCE = [
     {"id": "E5", "round": 1, "title": "The squeaky stair",
      "text": "Mom woke up twice when the 5th stair squeaked. "
              "First at 11:00 pm, going down. Then at 11:04 pm, going up. "
-             "It never squeaked again all night.",
+             "It never squeaked again. It is too wide to step over.",
      "icon": "speech"},
     {"id": "E6", "round": 2, "title": "Hallway night light",
      "text": "The motion light switched on at these times:\n11:01 pm, 11:03 pm, 12:14 am, 12:31 am.\n"
-             "(12:14 am is just after midnight.)\n"
+             "(12:14 am is just after midnight.) It notices people, not pets.\n"
              "The hallway joins the den, the stairs and the kitchen.",
      "icon": "camera"},
     {"id": "E7", "round": 2, "title": "Mom's sleep watch",

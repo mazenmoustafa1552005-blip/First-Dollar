@@ -461,7 +461,6 @@ def evidence_cards(c, th, paper, game, n):
                 break
             size -= 0.2
         para(c, e["text"], x + 4, y + ch - 14, cw - 8, size)
-        pk.text(c, x + cw - 4, y + 3, ICON_GLYPH.get(e["icon"], ""), 6.5, "Sans-Bold", pk.GREY_MID, "right")
     footer(c, paper, game, "Evidence cards", n)
     c.showPage()
     return n + 1

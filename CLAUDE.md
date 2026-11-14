@@ -4,6 +4,14 @@
 
 Always reply to the owner in Arabic (Egyptian-friendly, clear). Customer-facing product files, listings and marketing content stay in English for the international catalog unless the owner asks otherwise.
 
+## Owner decisions (2026-11-14, these override conflicting lines below)
+
+- The owner does no physical or handmade work. There will be no printed playtests, no print-and-assembly checks and no crochet samples.
+- Quality checks are digital: blind solves by independent subagents, design-rule lint, prepress PDF checks, calibration measurement on rasterized PDFs, and rendered previews built from the real files.
+- Never claim "playtested", "tested", "print-tested" or similar in customer-facing text. Preview images are labelled as digital previews.
+- The no-sew crochet line is paused (it cannot be sold honestly without a real sample and photos). Its draft stays in the repo.
+- Learn from competitors (formats, prices, features, the complaints in their reviews) and fix their weaknesses. Never copy their text, artwork, characters, names or layouts.
+
 ## Mission and operating brief
 
 Build and run a repeatable B2C digital-product workflow for an individual seller based in Egypt. Sell original ready-to-download products internationally as one-time purchases, individually and in bundles. Produce in English for the initial international catalog. Use organic distribution and no paid ads. Work on all three lines in parallel and produce as many genuinely distinct, quality-checked designs as capacity allows. Keep customer-facing descriptions accurate. Continue local work if an account connection is pending.

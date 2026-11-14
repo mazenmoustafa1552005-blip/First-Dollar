@@ -1,5 +1,9 @@
 # First Dollar: operating brief
 
+## Communication with the owner
+
+Always reply to the owner in Arabic (Egyptian-friendly, clear). Customer-facing product files, listings and marketing content stay in English for the international catalog unless the owner asks otherwise.
+
 ## Mission and operating brief
 
 Build and run a repeatable B2C digital-product workflow for an individual seller based in Egypt. Sell original ready-to-download products internationally as one-time purchases, individually and in bundles. Produce in English for the initial international catalog. Use organic distribution and no paid ads. Work on all three lines in parallel and produce as many genuinely distinct, quality-checked designs as capacity allows. Keep customer-facing descriptions accurate. Continue local work if an account connection is pending.
